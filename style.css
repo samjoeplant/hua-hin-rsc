@@ -1,6 +1,6 @@
 /* Rangers FC Colour Palette */
 :root {
-  --rangers-blue: #1A1AFF;
+  --rangers-blue: #014dad;
   --rangers-red: #FF1A1A;
   --rangers-white: #FFFFFF;
   --light-grey: #F2F2F2;
@@ -12,6 +12,10 @@ body {
   margin: 0;
   background: var(--light-grey);
   color: var(--dark-grey);
+}
+
+section {
+  padding: 0 20px 20px;
 }
 
 /* Header */
@@ -29,6 +33,13 @@ header h1 {
   letter-spacing: 1px;
 }
 
+footer {
+  background: var(--rangers-blue);
+  color: var(--rangers-white);
+  text-align: center;
+  padding: 15px 20px;
+  border-top: 5px solid var(--rangers-red);
+}
 /* Navigation */
 nav {
   margin-top: 10px;
@@ -53,4 +64,47 @@ nav a:hover {
   color: var(--rangers-white);
   padding: 50px 20px;
   text-align: center;
-  border
+  border-bottom: 5px solid var(--rangers-red);
+}
+
+.club-logo {
+  height: 150px;
+  margin-bottom: 10px;
+}
+
+.location-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.location-map {
+  background: var(--rangers-white);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.location-map iframe {
+  width: 100%;
+  height: 280px;
+  border: 0;
+  border-radius: 6px;
+}
+
+.location-details {
+  background: var(--rangers-white);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
