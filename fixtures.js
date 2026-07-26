@@ -1,14 +1,9 @@
 (function () {
-  const FIXTURES = [
-    {
-      teams: { home: { name: "Test 1" }, away: { name: "Away 1" } },
-      fixture: { date: "2026-08-01T18:00:00+07:00", venue: { name: "Hua Hin Municipal Stadium" } }
-    },
-    {
-      teams: { home: { name: "Test 2" }, away: { name: "Away 2" } },
-      fixture: { date: "2026-08-08T18:00:00+07:00", venue: { name: "Hua Hin Municipal Stadium" } }
-    }
-  ];
+
+
+  function hasText(value) {
+    return typeof value === "string" && value.trim().length > 0;
+  }
 
   function renderFixtures(fixtures) {
     const container = document.getElementById("fixtures-list");
@@ -16,14 +11,26 @@
 
     container.innerHTML = "";
 
-    fixtures.slice(0, 6).forEach((match) => {
+    const matches = Array.isArray(fixtures) ? fixtures : [];
+    const visibleFixtures = matches.filter((match) => {
+      const home = match?.teams?.home?.name;
+      const away = match?.teams?.away?.name;
+      return hasText(home) && hasText(away);
+    });
+
+    if (!visibleFixtures.length) {
+      container.textContent = "No fixtures available yet.";
+      return;
+    }
+
+    visibleFixtures.slice(0, 6).forEach((match) => {
       const item = document.createElement("div");
       item.className = "match-card";
 
-      const home = match.teams?.home?.name || "Home team";
-      const away = match.teams?.away?.name || "Away team";
-      const date = new Date(match.fixture?.date || Date.now()).toLocaleString();
-      const venue = match.fixture?.venue?.name || "TBD";
+      const home = match.teams?.home?.name;
+      const away = match.teams?.away?.name;
+      const date = match.fixture?.date ? new Date(match.fixture.date).toLocaleString() : "Date TBD";
+      const venue = match.fixture?.venue?.name || "Venue TBD";
 
       item.innerHTML = `
         <strong>${date}</strong><br>
@@ -36,8 +43,16 @@
   }
 
   function loadFixtures() {
-    renderFixtures(FIXTURES);
+    const fixtures = window.fixturesData;
+    renderFixtures(fixtures);
   }
 
   loadFixtures();
+
+  if (typeof module !== "undefined" && module.exports) {
+    module.exports = { renderFixtures, loadFixtures };
+  }
+
+  window.renderFixtures = renderFixtures;
+  window.loadFixtures = loadFixtures;
 })();
