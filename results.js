@@ -1,12 +1,12 @@
 (function () {
   const RESULTS = [
     {
-      teams: { home: { name: "Hua Hin Rangers" }, away: { name: "Bangkok FC" } },
+      teams: { home: { name: "Test 1" }, away: { name: "Away 1" } },
       goals: { home: 2, away: 1 },
       fixture: { date: "2026-07-25T18:00:00+07:00", venue: { name: "Hua Hin Municipal Stadium" } }
     },
     {
-      teams: { home: { name: "Pattaya United" }, away: { name: "Hua Hin Rangers" } },
+      teams: { home: { name: "Test 2" }, away: { name: "Away 2" } },
       goals: { home: 0, away: 1 },
       fixture: { date: "2026-07-18T18:00:00+07:00", venue: { name: "Pattaya Stadium" } }
     }
