@@ -1,41 +1,56 @@
+/* Rangers FC Colour Palette */
+:root {
+  --rangers-blue: #1A1AFF;
+  --rangers-red: #FF1A1A;
+  --rangers-white: #FFFFFF;
+  --light-grey: #F2F2F2;
+  --dark-grey: #222;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  background: #f4f4f4;
-  color: #222;
+  background: var(--light-grey);
+  color: var(--dark-grey);
 }
 
+/* Header */
 header {
-  background: #1a1aff;
-  color: white;
-  padding: 20px;
+  background: var(--rangers-blue);
+  color: var(--rangers-white);
+  padding: 25px 20px;
   text-align: center;
+  border-bottom: 5px solid var(--rangers-red);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+/* Navigation */
+nav {
+  margin-top: 10px;
 }
 
 nav a {
-  color: white;
-  margin: 0 10px;
+  color: var(--rangers-white);
+  margin: 0 12px;
   text-decoration: none;
   font-weight: bold;
+  padding: 6px 10px;
+  border-radius: 4px;
 }
 
+nav a:hover {
+  background: var(--rangers-red);
+}
+
+/* Hero section */
 .hero {
-  background: #e6e6ff;
-  padding: 40px;
+  background: var(--rangers-blue);
+  color: var(--rangers-white);
+  padding: 50px 20px;
   text-align: center;
-}
-
-section {
-  padding: 20px;
-  margin: 10px auto;
-  max-width: 800px;
-  background: white;
-  border-radius: 6px;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #ddd;
-}
-
+  border
